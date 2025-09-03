@@ -23,38 +23,38 @@ else:
 например (опт) мы находим в списке и меняем на верхний регистр, то в слове ( оптовик )
  он тоже поменяет. пример ниже
 """
-# let = "я ищу опт и меняю его на верх регистр а оптовик нет".split()
-# zsl = "ищу".split()
-#
-# for i in let:
-#     let = str(let)
-#     for j in zsl:
-#         if i == j:
-#             let = let.replace(i, j.upper())
-#
-# for j in let:
-#     if j.isalpha() or j.isspace():
-#         print(j, end="")
+let = "я ищу опт и меняю его на верх регистр а оптовик нет".split()
+zsl = "ищу".split()
+
+for i in let:
+    let = str(let)
+    for j in zsl:
+        if i == j:
+            let = let.replace(i, j.upper())
+
+for j in let:
+    if j.isalpha() or j.isspace():
+        print(j, end="")
 """
 такую задачу решаем замену элемета через индекс пример ниже (тоже побочка второе не находит)
 я ищу опт и меняю его на верх регистр а оптовик нет, е не е, а я нет
 ------------------------------------------------------------------------------------------------------
 """
-# let = "я ищу опт и меняю его на верх регистр а оптовик нет".split()
-# zsl = "я".split()
-#
-# ind = []
-#
-# for index, i in let:
-#     for j in zsl:
-#         if j == i:
-#             y = let.index(i)
-#             ind.append(y)
-#
-# for a in ind:
-#     let[int(a)] = let[int(a)].upper()
-#
-# print(" ".join(let))
+let = "я ищу опт и меняю его на верх регистр а оптовик нет".split()
+zsl = "я".split()
+
+ind = []
+
+for index, i in let:
+    for j in zsl:
+        if j == i:
+            y = let.index(i)
+            ind.append(y)
+
+for a in ind:
+    let[int(a)] = let[int(a)].upper()
+
+print(" ".join(let))
 
 """
 вот оно идеальное решение для такой задачи можно посмотреть
