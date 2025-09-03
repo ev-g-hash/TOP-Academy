@@ -1,7 +1,0 @@
-Hello world
-Hello world
-
-привет привет я работаю с файлами
-
-Hello world!!!
-World!!!
