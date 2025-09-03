@@ -1,15 +1,15 @@
 """
-string работа со строками
+string работа со строками (окончание работ со строками далее списки)
 """
 
-# from string import Formatter#
-# formatter = Formatter()#
-# print(formatter.format('{uzerLog}', userLog='Admim'))
+from string import Formatter#
+formatter = Formatter()#
+print(formatter.format('{uzerLog}', userLog='Admim'))
 
-# from string import Template
-# t = Template("какой-то текст $userRights, $userName, $appName")
-# resStr = t.substitute(userName="Admin", userRights = "edit", appName="superApp")
-# print(resStr)
+from string import Template
+t = Template("какой-то текст $userRights, $userName, $appName")
+resStr = t.substitute(userName="Admin", userRights = "edit", appName="superApp")
+print(resStr)
 
 """
 регулярные выражения
@@ -38,47 +38,47 @@ r"""
             или слева и справа от \B не буквенные символы)
 ------------------------------------------------------------------------------------------------------------------
 """
-# import re
-# userStr = "abcd abc efgh"
-# match = re.search(r"\w{4}", userStr)
-# print(match.group())
-# print(match.group(0))
+import re
+userStr = "abcd abc efgh"
+match = re.search(r"\w{4}", userStr)
+print(match.group())
+print(match.group(0))
 
-# import re
-# userStr = "abcd abc 12 123 efgh 456"
-# match = re.search(r"\d{3}", userStr)
-# print(match.group())
+import re
+userStr = "abcd abc 12 123 efgh 456"
+match = re.search(r"\d{3}", userStr)
+print(match.group())
 
-# import re
-# userStr = "My cell phone numbers: Vodafone +38(095)1234567; Cellcom +38(067)9875612"
-# match1 = re.search(r"Vodafone \+38\(095\)(\d\d\d\d\d\d\d); Cellcom \+38\(067\)(\d\d\d\d\d\d\d)", userStr)
-# print(match1.group())
-# print(match1.group(1,2))
+import re
+userStr = "My cell phone numbers: Vodafone +38(095)1234567; Cellcom +38(067)9875612"
+match1 = re.search(r"Vodafone \+38\(095\)(\d\d\d\d\d\d\d); Cellcom \+38\(067\)(\d\d\d\d\d\d\d)", userStr)
+print(match1.group())
+print(match1.group(1,2))
 
-# import re
-# userStr = "2021-2022 Competition Calendar:30.11.2021 — 2021 Grand Prix Series; 14.01.2022 — Grand Pemio D'Italia"
-# match2 = re.findall(r'\d{2}\.\d{2}\.\d{4}', userStr)
-# print(match2) # ['30.11.2021', '14.01.2022']
+import re
+userStr = "2021-2022 Competition Calendar:30.11.2021 — 2021 Grand Prix Series; 14.01.2022 — Grand Pemio D'Italia"
+match2 = re.findall(r'\d{2}\.\d{2}\.\d{4}', userStr)
+print(match2) # ['30.11.2021', '14.01.2022']
 
-# import re
-# userStr1="My cell phone numbers: Vodafone +38(095)1234567; Cellcom +38(067)9875612"
-# userStr2="Vodafone +38(095)1234567; Cellcom +38(067)9875612 — my cell phone numbers"
-# match3 = re.match(r'Vodafone \+38\(095\)(\d\d\d\d\d\d\d); Cellcom \+38\(067\)(\d\d\d\d\d\d\d)', userStr1)
-# match4 = re.match(r'Vodafone \+38\(095\)(\d\d\d\d\d\d\d); Cellcom \+38\(067\)(\d\d\d\d\d\d\d)', userStr2)
-#
-# print(match3) #None
-# print(match4.group()) # Vodafone +38(095)1234567; Cellcom +38(067)9875612
+import re
+userStr1="My cell phone numbers: Vodafone +38(095)1234567; Cellcom +38(067)9875612"
+userStr2="Vodafone +38(095)1234567; Cellcom +38(067)9875612 — my cell phone numbers"
+match3 = re.match(r'Vodafone \+38\(095\)(\d\d\d\d\d\d\d); Cellcom \+38\(067\)(\d\d\d\d\d\d\d)', userStr1)
+match4 = re.match(r'Vodafone \+38\(095\)(\d\d\d\d\d\d\d); Cellcom \+38\(067\)(\d\d\d\d\d\d\d)', userStr2)
 
-# import re
-# userStr = "2021-2022 Competition Calendar: 30.11.2021 — 2021 Grand Prix Series; 14.12.2021 — Grand Pemio D'Italia"
-# newStr = re.sub(r'[-;]', '/',userStr)
-# print(newStr) #2021/2022 Competition Calendar:30.11.2021 / 2021 Grand Prix Series/ 14.12.2021 / Grand Pemio D'Italia
+print(match3) #None
+print(match4.group()) # Vodafone +38(095)1234567; Cellcom +38(067)9875612
+
+import re
+userStr = "2021-2022 Competition Calendar: 30.11.2021 — 2021 Grand Prix Series; 14.12.2021 — Grand Pemio D'Italia"
+newStr = re.sub(r'[-;]', '/',userStr)
+print(newStr) #2021/2022 Competition Calendar:30.11.2021 / 2021 Grand Prix Series/ 14.12.2021 / Grand Pemio D'Italia
 
 
-# import re
-# userStr="30.11.2021 — 2021 Grand Prix Series, 14.12.2021 — Grand Pemio D'Italia; 27.12.2021 — Cup of Austria by IceChallenge"
-# strList=re.split(r'[,;]+', userStr)
-# print(strList) # создаёт список
+import re
+userStr="30.11.2021 — 2021 Grand Prix Series, 14.12.2021 — Grand Pemio D'Italia; 27.12.2021 — Cup of Austria by IceChallenge"
+strList=re.split(r'[,;]+', userStr)
+print(strList) # создаёт список
 
 
 """
@@ -86,73 +86,73 @@ r"""
 Понятие классического массива - список
 ------------------------------------------------------------------------------------------------------------------------
 """
-# courses = ["math", "algoritms", "databases"]
-# courses1 = list(("math", "algoritms", "databases"))
-#
-# print(courses)
-# print(type(courses))
-# print(courses1)
-# print(type(courses1))
+courses = ["math", "algoritms", "databases"]
+courses1 = list(("math", "algoritms", "databases"))
 
-# courses = ["яблоко", 234, 7009, "network", 5 + 5, True]
-#
-# print(courses)
-# print(type(courses))
+print(courses)
+print(type(courses))
+print(courses1)
+print(type(courses1))
+
+courses = ["яблоко", 234, 7009, "network", 5 + 5, True]
+
+print(courses)
+print(type(courses))
 
 
 # вложение в список
-# myList = [1, 22, 3, 4, 5, [45, "ckjdjdj"]]
-#
-# print(myList)
-# print(myList[5][0])
+myList = [1, 22, 3, 4, 5, [45, "ckjdjdj"]]
 
-# mySymbols = list("abcde")
-# print(mySymbols) #разбивка
+print(myList)
+print(myList[5][0])
 
-# list1 = [i * i for i in range(6)]
-# print(list1)
+mySymbols = list("abcde")
+print(mySymbols) #разбивка
 
-# list2 = [ i + "*" for i in "exzample"]
-# print(list2)
+list1 = [i * i for i in range(6)]
+print(list1)
 
-# list3 = [ i * 5 for i in "abcdtf"]
-# print(list3)
+list2 = [ i + "*" for i in "exzample"]
+print(list2)
 
-# list4 = [i * i for i in range(1,11) if i % 2 == 0]
-# print(list4)
+list3 = [ i * 5 for i in "abcdtf"]
+print(list3)
 
-# customers = ["михаил", "никита", "евгений", "андрей"]
-# list5 = [i for i in customers if i != "никита" and i != "андрей"]
-# print(list5)
+list4 = [i * i for i in range(1,11) if i % 2 == 0]
+print(list4)
 
-# list6 = [x * y for x in range(1,4) for y in range(1,4)]
-# print(list6)
+customers = ["михаил", "никита", "евгений", "андрей"]
+list5 = [i for i in customers if i != "никита" and i != "андрей"]
+print(list5)
+
+list6 = [x * y for x in range(1,4) for y in range(1,4)]
+print(list6)
 
 
-# list6 = [[x * y for x in range(1,4)] for y in range(1,4)]
-# for o in list6:
-#     print(o)
+list6 = [[x * y for x in range(1,4)] for y in range(1,4)]
+for o in list6:
+    print(o)
 
-# myList = ["uzer", 12, 200.34, False, True]
-# print(myList[-1])
-# print(myList[1])
-# print(myList[len(myList)-1])
+myList = ["uzer", 12, 200.34, False, True]
+print(myList[-1])
+print(myList[1])
+print(myList[len(myList)-1])
 
-#срезы в списках
-# myCourses = ["algoritms", 2345, 7009, "Networks", "databases"]
-# print(myCourses[1:3])
-# print(myCourses[-4:-2])
-# print(myCourses[1:-1])
-# print(myCourses[::-1])
-# print(myCourses[3:])
-# print(myCourses[::2])
-# print(myCourses[::-1])
-# print(myCourses[-4::-1])
+# срезы в списках
+myCourses = ["algoritms", 2345, 7009, "Networks", "databases"]
+print(myCourses[1:3])
+print(myCourses[-4:-2])
+print(myCourses[1:-1])
+print(myCourses[::-1])
+print(myCourses[3:])
+print(myCourses[::2])
+print(myCourses[::-1])
+print(myCourses[-4::-1])
 
-# category = ["вася","петя","коля"]
-# print(category)
-# category[0] = "action"
-# print(category)
+category = ["вася","петя","коля"]
+print(category)
+category[0] = "action"
+print(category)
 
 
 
