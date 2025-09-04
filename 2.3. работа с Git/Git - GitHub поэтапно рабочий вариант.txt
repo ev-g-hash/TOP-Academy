@@ -1,0 +1,15 @@
+имя и емайл
+git config --global user.name "ev-g-hash"
+git config --global user.email "pihtulovevgeny@gmail.com"
+
+
+git config --global user.name "evge-n-pleh"
+git config --global user.email "eo.plehanov79@gmail.com"
+
+(клонируем репозиторий)
+git clone https://github.com/ev-g-hash/Python-dz.git
+
+(работаем в клоне)
+git add .
+git commit -m "описание"
+git push

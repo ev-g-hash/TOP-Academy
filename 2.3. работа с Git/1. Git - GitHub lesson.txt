@@ -1,0 +1,25 @@
+git config --global user.name "ev-g-hash"
+git config --global user.email "pihtulovevgeny@gmail.com"
+
+git init
+
+git pull https://github.com/ev-g-hash/lesson.git
+(получение данных с ГитХаб - синхронизация в локальную папку)
+
+git add . (потом добавляем)
+git commit -m "уроки Академии"
+git push --set-upstream https://github.com/ev-g-hash/lesson.git master
+(пушим вот так)
+
+
+
+
+
+
+
+
+
+
+
+
+

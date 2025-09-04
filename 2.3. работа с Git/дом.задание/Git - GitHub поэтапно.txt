@@ -1,0 +1,32 @@
+
+git config --global user.name "ev-g-hash"
+
+git config --global user.email "pihtulovevgeny@gmail.com"
+
+git init
+
+git add . (если нужно файл или папку то засунь в кавычки)
+
+git commit -m "упражнения поколение Пайтон"
+
+git remote add origin https://github.com/ev-g-hash/Python-dz.git
+
+git push -u origin master
+
+=======
+git config --global user.name "ev-g-hash"
+
+git config --global user.email "pihtulovevgeny@gmail.com"
+
+git init
+
+git add . (если нужно файл или папку то засунь в кавычки)
+
+git commit -m "упражнения поколение Пайтон"
+
+git remote add origin https://github.com/ev-g-hash/Python-dz.git
+
+git push -u origin master
+
+>>>>>>> 2d7937d348b5b8197776a1bf1f5898e05464d36a
+если делать всё поэтапно то всё работает, есть нюансы... через практику осваиваются!!!!!!!!!!!

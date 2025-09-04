@@ -1,0 +1,288 @@
+"""
+1 - На компьютер установлен Git, настройки все по умолчанию;
+
+2 - на рабочем столе создана папка \my_pro\ (локальный путь C:\Users\прога\Desktop\my_pro\)
+    в папке \my_pro\ созданы две папки \my_fol_1\ и \my_fol_2\
+    локальные пути:
+                    - C:\Users\прога\Desktop\my_pro\my_fol_1\
+                    - C:\Users\прога\Desktop\my_pro\my_fol_2\
+    в папке \my_fol_1\ созданы два файла \my_file_1_1.txt\ и \my_file_1_2.txt\:
+    локальные пути:
+                    - C:\Users\прога\Desktop\my_pro\my_fol_1\my_file_1_1.txt\
+                    - C:\Users\прога\Desktop\my_pro\my_fol_1\my_file_1_2.txt\
+    в папке \my_fol_2\ созданы два файла \my_file_2_1.txt\ и \my_file_2_2.txt\:
+    локальные пути:
+                    - C:\Users\прога\Desktop\my_pro\my_fol_2\my_file_2_1.txt\
+                    - C:\Users\прога\Desktop\my_pro\my_fol_2\my_file_2_2.txt\
+
+3 - создали репозиторий путем открытия Git в папке \my_pro\:
+    - открываем папку \my_pro\ путём нажатия правой клавиши мыши
+    выбираем ( Open Git Bash here )
+    - в открывшейся консоли набираем команду ( git init )
+    - убеждаемся что репозиторий создан путём наличия
+    скрытой папки .git
+    (репозиторий создан)
+
+4 - в консоли Git ( консоль открыта в том же репозитории ) набираем команду ( git add . )
+    - проверяем наличие добавленных файлов и папок в индекс репозитория
+    командой ( git status )
+    получаем следующую информацию от Git:
+                                        Changes to be committed:
+                                      (use "git rm --cached <file>..." to unstage)
+                                            new file:   my_fol_1/my_file_1_1.txt
+                                            new file:   my_fol_1/my_file_1_2.txt
+                                            new file:   my_fol_2/my_file_2_1.txt
+                                            new file:   my_fol_2/my_file_2_2.txt
+
+    - содержимое двух подпапок добавено в индекс репозитория
+
+5 - в консоли Git ( консоль открыта в том же репозитории )
+    - набираем команду ( git commit -m "первый" )
+    получаем информацию от Git:
+                                $ git commit -m "первый"
+                            [master (root-commit) 84ca22a] первый
+                             4 files changed, 0 insertions(+), 0 deletions(-)
+                             create mode 100644 my_fol_1/my_file_1_1.txt
+                             create mode 100644 my_fol_1/my_file_1_2.txt
+                             create mode 100644 my_fol_2/my_file_2_1.txt
+                             create mode 100644 my_fol_2/my_file_2_2.txt
+
+6 - в my_file_1_1.txt внесены следующие изменения:
+    qqqqqqqqqqqqqqqqqqqqqqqq
+    файл сохранён и закрыт
+    в консоли Git ( консоль открыта в том же репозитории )
+    - набираем команду ( git add my_fol_1/my_file_1_1.txt )
+    добавляем изменения в индекс путем git add и путь изменённого файла
+    - набираем команду ( git commit -m "изменения в файле my_file_1_1.txt" )
+    получаем информацию от Git:
+                                [master fb80b67] второй
+                                 1 file changed, 1 insertion(+)
+
+7 - создана папка \my_fol_3\ локальный путь:
+                                    C:\Users\прога\Desktop\my_pro\my_fol_3\
+
+    в папке \my_fol_3\ созданы два файла \my_file_3_1.txt\ и \my_file_3_2.txt\
+    локальные пути:
+                    C:\Users\прога\Desktop\my_pro\my_fol_3\my_file_3_1.txt\
+                    C:\Users\прога\Desktop\my_pro\my_fol_3\my_file_3_2.txt\
+    - набираем команду ( git add my_fol_3 )
+    проверяем ( git status ) получаем:
+                                    On branch master
+                                Changes to be committed:
+                                  (use "git restore --staged <file>..." to unstage)
+                                        new file:   my_fol_3/my_file_3_1.txt
+                                        new file:   my_fol_3/my_file_3_2.txt
+
+    - набираем команду ( git commit -m "третий my_fol_3" )
+    получаем:
+                        [master 4f56f4b] третий
+             2 files changed, 0 insertions(+), 0 deletions(-)
+             create mode 100644 my_fol_3/my_file_3_1.txt
+             create mode 100644 my_fol_3/my_file_3_2.txt
+
+8 - вносим изменение в файл my_fol_3/my_file_3_1.txt ( фффффффффффффффффффффф )
+    сохраняем, закрываем
+    - в консоли Git ( консоль открыта в том же репозитории )
+    - набираем команду ( git checkout my_fol_3/my_file_3_1.txt )
+    получаем:
+            Updated 1 path from the index
+    открываем файл \my_file_3_1.txt\ проверяем информация ( фффффффффффффффффффффф ) стёрта
+
+9 - вносим изменение в файл my_fol_3/my_file_3_2.txt ( ggggggggggggggggggggggggg )
+    сохраняем, закрываем
+    - даём команду ( git add my_fol_3/my_file_3_2.txt )
+    - проверяем ( git status ):
+                            On branch master
+                        Changes to be committed:
+                          (use "git restore --staged <file>..." to unstage)
+                                modified:   my_fol_3/my_file_3_2.txt
+
+    - даём команду ( git reset my_fol_3/my_file_3_2.txt )
+    получаем:
+            Unstaged changes after reset:
+            M       my_fol_3/my_file_3_2.txt
+    - проверяем ( git status )
+    получаем:
+                    On branch master
+        Changes not staged for commit:
+          (use "git add <file>..." to update what will be committed)
+          (use "git restore <file>..." to discard changes in working directory)
+                modified:   my_fol_3/my_file_3_2.txt
+
+    изменения с индекса сброшены
+
+10 - вносим изменение в файл my_fol_3/my_file_3_1.txt ( ввввввввввв )
+    сохраняем, закрываем
+    - набираем команду ( git add my_fol_3/my_file_3_1.txt )
+    ( git status )
+    получаем:
+                        On branch master
+            Changes to be committed:
+              (use "git restore --staged <file>..." to unstage)
+                    modified:   my_fol_3/my_file_3_1.txt
+
+    набираем команду ( git commit -m "задание 10" )
+    получаем:
+            [master e20da4d] задание 10
+         1 file changed, 1 insertion(+)
+
+    - набираем команду ( git log )
+    получаем список коммит:
+                            commit e20da4d9fe24fb6afc7ecbab0270b9fd74abb1c1 (HEAD -> master)
+                        Author: ev-g-hash <pihtulovevgeny@gmail.com>
+                        Date:   Sun Jun 1 03:13:08 2025 +0400
+
+                            задание 10
+
+                        commit 4f56f4b05dc088cf598fd2031f7722b2c39f99e6
+                        Author: ev-g-hash <pihtulovevgeny@gmail.com>
+                        Date:   Sun Jun 1 02:30:09 2025 +0400
+
+                            третий
+
+                        commit fb80b6728e158049a891bd616d9cad17e1e2409a
+                        Author: ev-g-hash <pihtulovevgeny@gmail.com>
+                        Date:   Sun Jun 1 02:13:14 2025 +0400
+
+                            второй
+
+                        commit 84ca22a489b29227d3d94a5e86d8f05910fe9c8c
+                        Author: ev-g-hash <pihtulovevgeny@gmail.com>
+                        Date:   Sun Jun 1 02:02:48 2025 +0400
+
+                            первый
+    закрываем консоль
+    открываем консоль Git ( консоль открыта в том же репозитории \my_pro\ )
+    берём ключ последнего коммита - e20da4d9fe24fb6afc7ecbab0270b9fd74abb1c1
+    - набираем команду ( git revert e20da4d9fe24fb6afc7ecbab0270b9fd74abb1c1)
+    проверяем файл my_fol_3/my_file_3_1.txt - файл пустой
+
+
+11 - набираем команду ( git log )
+    - выбираем commit изменения в файле my_file_1_1.txt -
+      ( 84eb0becdb4f9ccefdefc61365766bac6ab97022 )
+    копируем этот ключ
+    - закрываем консоль
+    - открываем консоль Git в том же репозитории
+    набираем команду ( git reset --hard 84eb0becdb4f9ccefdefc61365766bac6ab97022 )
+    получаем
+            HEAD is now at 84eb0be изменения в файле my_file_1_1.txt
+
+    проверяем даём команду ( git log )
+    получаем ( откатились )
+                            commit 84eb0becdb4f9ccefdefc61365766bac6ab97022 (HEAD -> master)
+                            Author: ev-g-hash <pihtulovevgeny@gmail.com>
+                            Date:   Sun Jun 1 13:03:45 2025 +0400
+
+                                изменения в файле my_file_1_1.txt
+
+                            commit de5a710a65c4d6fe838e7fa3944a1447d9e68126
+                            Author: ev-g-hash <pihtulovevgeny@gmail.com>
+                            Date:   Sun Jun 1 13:01:18 2025 +0400
+
+                                первый
+
+
+    (HEAD -> master) переместился на указаую точку отката
+
+
+12 - запускаем Git
+    - даём команду ( git status )
+    получаем
+                        On branch master
+            nothing to commit, working tree clean
+
+    создаем пару файлов в репозитории a1.txt и b1.txt
+    - даём команду ( git status )
+    получаем
+                On branch master
+            Untracked files:
+              (use "git add <file>..." to include in what will be committed)
+                    a1.txt
+                    b1.txt
+    - даём команду ( git add a1.txt )
+    - даём команду ( git status )
+    получаем
+                        On branch master
+            Changes to be committed:
+              (use "git restore --staged <file>..." to unstage)
+                    new file:   a1.txt
+
+            Untracked files:
+              (use "git add <file>..." to include in what will be committed)
+                    b1.txt
+    - даём команду ( git commit -m "последний коммит" )
+        получаем
+                                [master db2bc4b] последний коммит
+                 1 file changed, 0 insertions(+), 0 deletions(-)
+                 create mode 100644 a1.txt
+        - даём команду ( git status )
+        получаем
+                            On branch master
+                    Untracked files:
+                      (use "git add <file>..." to include in what will be committed)
+                            b1.txt
+        - даём команду ( git log )
+        получаем
+                        commit db2bc4bf5a880eb8fc7daed5032ef87d45a2b7b3 (HEAD -> master)
+                        Author: ev-g-hash <pihtulovevgeny@gmail.com>
+                        Date:   Sun Jun 1 13:31:16 2025 +0400
+
+                            последний коммит
+
+                        commit 84eb0becdb4f9ccefdefc61365766bac6ab97022
+                        Author: ev-g-hash <pihtulovevgeny@gmail.com>
+                        Date:   Sun Jun 1 13:03:45 2025 +0400
+
+                            изменения в файле my_file_1_1.txt
+
+                        commit de5a710a65c4d6fe838e7fa3944a1447d9e68126
+                        Author: ev-g-hash <pihtulovevgeny@gmail.com>
+                        Date:   Sun Jun 1 13:01:18 2025 +0400
+
+                            первый
+            - даём команду ( git status )
+            получаем
+                                    On branch master
+                        Changes to be committed:
+                          (use "git restore --staged <file>..." to unstage)
+                                new file:   b1.txt
+
+            - даём команду ( git add b1.txt)
+            - даём команду ( git status )
+            получаем
+                    On branch master
+                    Changes to be committed:
+                      (use "git restore --staged <file>..." to unstage)
+                            new file:   b1.txt
+            - даём команду ( git commit --amend --no-edit )
+            получаем
+                     [master f52e218] последний коммит
+                     Date: Sun Jun 1 13:31:16 2025 +0400
+                     2 files changed, 0 insertions(+), 0 deletions(-)
+                     create mode 100644 a1.txt
+                     create mode 100644 b1.txt
+            проверяем ( git status )
+                                        On branch master
+                                        nothing to commit, working tree clean
+            проверяем ( git log )
+                                commit f52e21874e9e804bab940848aaa97ceee3039c23 (HEAD -> master)
+                                Author: ev-g-hash <pihtulovevgeny@gmail.com>
+                                Date:   Sun Jun 1 13:31:16 2025 +0400
+
+                                    последний коммит
+
+                                commit 84eb0becdb4f9ccefdefc61365766bac6ab97022
+                                Author: ev-g-hash <pihtulovevgeny@gmail.com>
+                                Date:   Sun Jun 1 13:03:45 2025 +0400
+
+                                    изменения в файле my_file_1_1.txt
+
+                                commit de5a710a65c4d6fe838e7fa3944a1447d9e68126
+                                Author: ev-g-hash <pihtulovevgeny@gmail.com>
+                                Date:   Sun Jun 1 13:01:18 2025 +0400
+
+                                    первый
+
+                Количество коммитов не изменилось данные добавлены в последний коммит
+"""
