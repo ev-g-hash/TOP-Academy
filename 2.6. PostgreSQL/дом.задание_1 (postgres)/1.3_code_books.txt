@@ -1,0 +1,14 @@
+-- "Library".books определение
+
+-- Drop table
+
+-- DROP TABLE "Library".books;
+
+CREATE TABLE "Library".books (
+	bookid int4 NOT NULL,
+	title varchar NOT NULL,
+	author varchar NOT NULL,
+	publishedyear int4 NULL,
+	genre varchar NULL,
+	CONSTRAINT books_pk PRIMARY KEY (bookid)
+);

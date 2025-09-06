@@ -1,0 +1,15 @@
+-- "Library".users определение
+
+-- Drop table
+
+-- DROP TABLE "Library".users;
+
+CREATE TABLE "Library".users (
+	userid int4 NOT NULL,
+	username varchar(50) NOT NULL,
+	email varchar(50) NOT NULL,
+	registrationdate date NULL,
+	CONSTRAINT users_pk PRIMARY KEY (userid),
+	CONSTRAINT users_unique UNIQUE (username),
+	CONSTRAINT users_unique_1 UNIQUE (email)
+);
