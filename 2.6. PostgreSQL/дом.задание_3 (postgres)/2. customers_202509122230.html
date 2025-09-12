@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/><style>
+table {border: medium solid #6495ed;border-collapse: collapse;width: 100%;} th{font-family: monospace;border: thin solid #6495ed;padding: 5px;background-color: #D0E3FA;}th{text-align: left;}td{font-family: sans-serif;border: thin solid #6495ed;padding: 5px;text-align: center;}.odd{background:#e8edff;}img{padding:5px; border:solid; border-color: #dddddd #aaaaaa #aaaaaa #dddddd; border-width: 1px 2px 2px 1px; background-color:white;}</style>
+</head>
+<body>
+<table><tr><th colspan="2"><pre><code>--2. Выбрать все записи из таблицы customers, но только колонки "имя контакта" и "город"<br>select <br>c.contact_name, c.city <br>from customers c</code></pre></th></tr><tr><th>contact_name</th><th>city</th></tr><tr class="odd"><td>Maria Anders</td><td>Berlin</td></tr>
+<tr><td>Ana Trujillo</td><td>México D.F.</td></tr>
+<tr class="odd"><td>Antonio Moreno</td><td>México D.F.</td></tr>
+<tr><td>Thomas Hardy</td><td>London</td></tr>
+<tr class="odd"><td>Christina Berglund</td><td>Luleå</td></tr>
+<tr><td>Hanna Moos</td><td>Mannheim</td></tr>
+<tr class="odd"><td>Frédérique Citeaux</td><td>Strasbourg</td></tr>
+<tr><td>Martín Sommer</td><td>Madrid</td></tr>
+<tr class="odd"><td>Laurence Lebihan</td><td>Marseille</td></tr>
+<tr><td>Elizabeth Lincoln</td><td>Tsawassen</td></tr>
+<tr class="odd"><td>Victoria Ashworth</td><td>London</td></tr>
+<tr><td>Patricio Simpson</td><td>Buenos Aires</td></tr>
+<tr class="odd"><td>Francisco Chang</td><td>México D.F.</td></tr>
+<tr><td>Yang Wang</td><td>Bern</td></tr>
+<tr class="odd"><td>Pedro Afonso</td><td>Sao Paulo</td></tr>
+<tr><td>Elizabeth Brown</td><td>London</td></tr>
+<tr class="odd"><td>Sven Ottlieb</td><td>Aachen</td></tr>
+<tr><td>Janine Labrune</td><td>Nantes</td></tr>
+<tr class="odd"><td>Ann Devon</td><td>London</td></tr>
+<tr><td>Roland Mendel</td><td>Graz</td></tr>
+<tr class="odd"><td>Aria Cruz</td><td>Sao Paulo</td></tr>
+<tr><td>Diego Roel</td><td>Madrid</td></tr>
+<tr class="odd"><td>Martine Rancé</td><td>Lille</td></tr>
+<tr><td>Maria Larsson</td><td>Bräcke</td></tr>
+<tr class="odd"><td>Peter Franken</td><td>München</td></tr>
+<tr><td>Carine Schmitt</td><td>Nantes</td></tr>
+<tr class="odd"><td>Paolo Accorti</td><td>Torino</td></tr>
+<tr><td>Lino Rodriguez</td><td>Lisboa</td></tr>
+<tr class="odd"><td>Eduardo Saavedra</td><td>Barcelona</td></tr>
+<tr><td>José Pedro Freyre</td><td>Sevilla</td></tr>
+<tr class="odd"><td>André Fonseca</td><td>Campinas</td></tr>
+<tr><td>Howard Snyder</td><td>Eugene</td></tr>
+<tr class="odd"><td>Manuel Pereira</td><td>Caracas</td></tr>
+<tr><td>Mario Pontes</td><td>Rio de Janeiro</td></tr>
+<tr class="odd"><td>Carlos Hernández</td><td>San Cristóbal</td></tr>
+<tr><td>Yoshi Latimer</td><td>Elgin</td></tr>
+<tr class="odd"><td>Patricia McKenna</td><td>Cork</td></tr>
+<tr><td>Helen Bennett</td><td>Cowes</td></tr>
+<tr class="odd"><td>Philip Cramer</td><td>Brandenburg</td></tr>
+<tr><td>Daniel Tonini</td><td>Versailles</td></tr>
+<tr class="odd"><td>Annette Roulet</td><td>Toulouse</td></tr>
+<tr><td>Yoshi Tannamuri</td><td>Vancouver</td></tr>
+<tr class="odd"><td>John Steel</td><td>Walla Walla</td></tr>
+<tr><td>Renate Messner</td><td>Frankfurt a.M.</td></tr>
+<tr class="odd"><td>Jaime Yorres</td><td>San Francisco</td></tr>
+<tr><td>Carlos González</td><td>Barquisimeto</td></tr>
+<tr class="odd"><td>Felipe Izquierdo</td><td>I. de Margarita</td></tr>
+<tr><td>Fran Wilson</td><td>Portland</td></tr>
+<tr class="odd"><td>Giovanni Rovelli</td><td>Bergamo</td></tr>
+<tr><td>Catherine Dewey</td><td>Bruxelles</td></tr>
+<tr class="odd"><td>Jean Fresnière</td><td>Montréal</td></tr>
+<tr><td>Alexander Feuer</td><td>Leipzig</td></tr>
+<tr class="odd"><td>Simon Crowther</td><td>London</td></tr>
+<tr><td>Yvonne Moncada</td><td>Buenos Aires</td></tr>
+<tr class="odd"><td>Rene Phillips</td><td>Anchorage</td></tr>
+<tr><td>Henriette Pfalzheim</td><td>Köln</td></tr>
+<tr class="odd"><td>Marie Bertrand</td><td>Paris</td></tr>
+<tr><td>Guillermo Fernández</td><td>México D.F.</td></tr>
+<tr class="odd"><td>Georg Pipps</td><td>Salzburg</td></tr>
+<tr><td>Isabel de Castro</td><td>Lisboa</td></tr>
+<tr class="odd"><td>Bernardo Batista</td><td>Rio de Janeiro</td></tr>
+<tr><td>Lúcia Carvalho</td><td>Sao Paulo</td></tr>
+<tr class="odd"><td>Horst Kloss</td><td>Cunewalde</td></tr>
+<tr><td>Sergio Gutiérrez</td><td>Buenos Aires</td></tr>
+<tr class="odd"><td>Paula Wilson</td><td>Albuquerque</td></tr>
+<tr><td>Maurizio Moroni</td><td>Reggio Emilia</td></tr>
+<tr class="odd"><td>Janete Limeira</td><td>Rio de Janeiro</td></tr>
+<tr><td>Michael Holz</td><td>Genève</td></tr>
+<tr class="odd"><td>Alejandra Camino</td><td>Madrid</td></tr>
+<tr><td>Jonas Bergulfsen</td><td>Stavern</td></tr>
+<tr class="odd"><td>Jose Pavarotti</td><td>Boise</td></tr>
+<tr><td>Hari Kumar</td><td>London</td></tr>
+<tr class="odd"><td>Jytte Petersen</td><td>Kobenhavn</td></tr>
+<tr><td>Dominique Perrier</td><td>Paris</td></tr>
+<tr class="odd"><td>Art Braunschweiger</td><td>Lander</td></tr>
+<tr><td>Pascale Cartrain</td><td>Charleroi</td></tr>
+<tr class="odd"><td>Liz Nixon</td><td>Portland</td></tr>
+<tr><td>Liu Wong</td><td>Butte</td></tr>
+<tr class="odd"><td>Karin Josephs</td><td>Münster</td></tr>
+<tr><td>Miguel Angel Paolino</td><td>México D.F.</td></tr>
+<tr class="odd"><td>Anabela Domingues</td><td>Sao Paulo</td></tr>
+<tr><td>Helvetius Nagy</td><td>Kirkland</td></tr>
+<tr class="odd"><td>Palle Ibsen</td><td>Århus</td></tr>
+<tr><td>Mary Saveley</td><td>Lyon</td></tr>
+<tr class="odd"><td>Paul Henriot</td><td>Reims</td></tr>
+<tr><td>Rita Müller</td><td>Stuttgart</td></tr>
+<tr class="odd"><td>Pirkko Koskitalo</td><td>Oulu</td></tr>
+<tr><td>Paula Parente</td><td>Resende</td></tr>
+<tr class="odd"><td>Karl Jablonski</td><td>Seattle</td></tr>
+<tr><td>Matti Karttunen</td><td>Helsinki</td></tr>
+<tr class="odd"><td>Zbyszek Piestrzeniewicz</td><td>Warszawa</td></tr>
+</table></body></html>
