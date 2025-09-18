@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/><style>
+table {border: medium solid #6495ed;border-collapse: collapse;width: 100%;} th{font-family: monospace;border: thin solid #6495ed;padding: 5px;background-color: #D0E3FA;}th{text-align: left;}td{font-family: sans-serif;border: thin solid #6495ed;padding: 5px;text-align: center;}.odd{background:#e8edff;}img{padding:5px; border:solid; border-color: #dddddd #aaaaaa #aaaaaa #dddddd; border-width: 1px 2px 2px 1px; background-color:white;}</style>
+</head>
+<body>
+<table><tr><th colspan="2"><pre><code>--8. Найти заказчиков, не сделавших ни одного заказа. Вывести имя заказчика и order_id.<br>select c.contact_name, o.order_id<br>from customers c <br>left join orders o using(customer_id)<br>where o.order_id is null</code></pre></th></tr><tr><th>contact_name</th><th>order_id</th></tr><tr class="odd"><td>Marie Bertrand</td><td>&nbsp;</td></tr>
+<tr><td>Diego Roel</td><td>&nbsp;</td></tr>
+</table></body></html>

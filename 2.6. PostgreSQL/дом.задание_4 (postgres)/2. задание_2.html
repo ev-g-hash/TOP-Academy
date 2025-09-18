@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/><style>
+table {border: medium solid #6495ed;border-collapse: collapse;width: 100%;} th{font-family: monospace;border: thin solid #6495ed;padding: 5px;background-color: #D0E3FA;}th{text-align: left;}td{font-family: sans-serif;border: thin solid #6495ed;padding: 5px;text-align: center;}.odd{background:#e8edff;}img{padding:5px; border:solid; border-color: #dddddd #aaaaaa #aaaaaa #dddddd; border-width: 1px 2px 2px 1px; background-color:white;}</style>
+</head>
+<body>
+<table><tr><th colspan="4"><pre><code>--2. Выбрать записи заказов (включить колонки идентификатора заказа, идентификатора заказчика, веса и страны отгузки), <br>--которые должны быть отгружены в страны имя которых начинается с 'N', отсортировать по весу (по убыванию)<br>--и вывести только первые 10 записей.<br>select o.order_id, o.customer_id, o.freight, o.ship_country<br>from orders o<br>where left (o.ship_country, 1) = 'N'<br>order by o.freight desc<br>limit 10</code></pre></th></tr><tr><th>order_id</th><th>customer_id</th><th>freight</th><th>ship_country</th></tr><tr class="odd"><td>10 387</td><td>SANTG</td><td>93,63</td><td>Norway</td></tr>
+<tr><td>10 831</td><td>SANTG</td><td>72,19</td><td>Norway</td></tr>
+<tr class="odd"><td>10 909</td><td>SANTG</td><td>53,05</td><td>Norway</td></tr>
+<tr><td>10 639</td><td>SANTG</td><td>38,64</td><td>Norway</td></tr>
+<tr class="odd"><td>10 520</td><td>SANTG</td><td>13,37</td><td>Norway</td></tr>
+<tr><td>11 015</td><td>SANTG</td><td>4,62</td><td>Norway</td></tr>
+</table></body></html>
