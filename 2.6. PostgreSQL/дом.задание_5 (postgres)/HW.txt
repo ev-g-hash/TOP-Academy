@@ -1,0 +1,3 @@
+https://github.com/EngineerSpock/postgres-course-ru/tree/master - (доп. мат)
+
+1) Создать БД используя psycopg2.
