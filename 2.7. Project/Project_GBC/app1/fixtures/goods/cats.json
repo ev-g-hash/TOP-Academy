@@ -1,0 +1,58 @@
+[
+    {
+        "model": "goods.categories",
+        "pk": 8,
+        "fields": {
+            "name": "Все изделия",
+            "slug": "vse-izdeliya"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 9,
+        "fields": {
+            "name": "Обложки",
+            "slug": "oblozhki"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 10,
+        "fields": {
+            "name": "Домики",
+            "slug": "domiki"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 11,
+        "fields": {
+            "name": "Букеты",
+            "slug": "bukety"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 12,
+        "fields": {
+            "name": "Бутылки",
+            "slug": "butylki"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 13,
+        "fields": {
+            "name": "Кружки",
+            "slug": "kruzhki"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 14,
+        "fields": {
+            "name": "Ежедневники",
+            "slug": "ezhednevniki"
+        }
+    }
+]

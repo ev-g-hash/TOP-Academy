@@ -1,21 +1,26 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
+from goods.models import Categories
 
-# Create your views here.
+
 def index(request):
+
+    categories = Categories.objects.all()
+
     context = {
-        'title': 'Home - Главная',
+        'title': 'Главная PBigCiti',
         'content': 'Подарок в большом',
-        'content_1': 'городе' 
+        'content_1': 'городе',
+        'categories': categories
     }
     return render(request, 'main/index.html', context)
 
 def about(request):
     context = {
-        'title': 'Home - О нас',
+        'title': 'PBigCiti - О нас',
         'content': 'О нас',
-        'text_on_page': 'Текст о том какой классный магазин'
+        'text_on_page': 'Подарок в большом городе'
     }
     return render(request, 'main/about.html', context)
 
