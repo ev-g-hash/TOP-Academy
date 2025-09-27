@@ -1,0 +1,334 @@
+-------------------------------------работа с проектом-----------------------------------------
+
+- создать папку проекта
+- открыть её в VScode
+
+- развернуть виртуальную среду (python -m venv venv)
+venv - название папки для вирт.среды(можно любую)
+
+- venv\Scripts\activate (активация\deactivate-деактивация)
+(активация запускатся каждый раз перед сессией python manage.py runserver и терминал
+остается открытым, работа продолжается в новом терминале)
+
+- pip install django (установка джанго)
+
+- если запускается через пауэлл шелл и выдаёт ошибку то
+открываем file/preferences/settings/кликнуть на значёк в правом вехнем углу(open settings (JSON))
+дописать команду - ("terminal.integrated.defaultProfile.windows": "Command Prompt",)
+
+- pip install --upgrade pip (обновление менеджера)
+
+- django-admin
+
+- django-admin startproject app (создание нового проекта, app - название проекта(папки)
+создаётся директрорий app со вложенной папкой app, главную папку app переименновываем
+на папку app1)
+
+-открываем папку app через File-Open Folder
+
+- далее нужно поменять интерпретатор с корневого на из папки app1/venv/Scripts - python.exe
+щелкаем в правом нижнем углу на версию python при открытом файле manage.py
+выбираем путь интерпретатора app_0/venv/Scripts - python.exe.
+
+- python manage.py runserver
+
+- запуск runserver в автоматическом режиме настройка 
+(справа на вертикальной панели кнопка плей и жучёк нажимаем её
+выбираем -create a launch.json file-, далее python debugger, далее
+в выпадающем меню django, далее manage.py)
+(поменять файл json в папке .vscode на json в папке 
+c:\Users\прога\Desktop\Job Py\3 Project\1.1 для проекта (HubStudio)
+\templates-for-Django-4-course-Home-main\other_files проекта HubStudio )
+
+- во вкладке слева на вертикальной панели в установленых праграммах проверить установленные расширения:
+    python
+    pylance
+    django
+    black formatter
+
+------------------------------------------написание проекта
+открываем новый терминал
+-  python manage.py startapp main (создаём папку main)
+    (регистрируем - app/settings/INSTALLED_APPS/
+    отступаем строку и записываем - ('main',) )
+
+- пишем первое представление main/views.py
+
+from django.http import HttpResponse
+
+def index(request):
+    return HttpResponse('Home page')
+def about(request):
+    return HttpResponse('About page')
+
+- закрепление за url (заходим в папку app открываем urls.py)
+app/urls.py
+
+from main import views
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', views.index, name='index'),
+    path('about/', views.about, name='about'),
+]
+
+- в папке main создаём папку templates (без ошибок), далее в templates создаём папку main
+и создаём файл index.html
+
+в файл main/views.py вносим изменения
+def index(request):
+    return render(request, 'main/index.html')
+
+- перезапускаем терминал 
+- проверяем что страница открывается
+- отключаем терминал
+
+- открываем файл index.html вносим изменения
+
+над доктайпом пишем
+{% load static %}
+
+далее в коде
+    <link rel="stylesheet" href={% static "deps/css/bootstrap/bootstrap.min.css" %}>
+    <link rel="stylesheet" href={% static "deps/css/my_css.css" %}>
+    <!-- Стиль footer-a для главной страницы -->
+    <link rel="stylesheet" href={% static "deps/css/my_footer_css.css" %}>
+    <!-- Favicons for different platforms -->
+    <link rel="apple-touch-icon" sizes="180x180" href={% static "deps/favicon/apple-touch-icon.png" %}>
+    <link rel="icon" type="image/png" sizes="32x32" href={% static "deps/favicon/favicon-32x32.png" %}>
+    <link rel="icon" type="image/png" sizes="16x16" href={% static "deps/favicon/favicon-16x16.png" %}>
+    <link rel="manifest" href={% static "deps/favicon/site.webmanifest" %}>
+
+    <img class="mx-1" src={% static "deps/icons/grid-fill.svg" %} alt="Catalog Icon" width="16"
+    height="16">
+    <img class="mx-1" src={% static "deps/icons/basket2-fill.svg" %} alt="Catalog Icon" width="24"
+    height="24">
+    <img class="mx-1" src={% static "deps/icons/trash3-fill.svg" %}
+    alt="Catalog Icon" width="16" height="16">
+
+    <script src={% static "deps/js/jquery/jquery-3.7.0.min.js" %}></script>
+    <script src={% static "deps/js/jquery-events.js" %}></script>
+    <script src={% static "deps/js/jquery-ajax.js" %}></script>
+    <script src={% static "deps/js/bootstrap/bootstrap.bundle.min.js" %}></script>
+
+- в директории c:\Users\прога\Desktop\Job Py\3 Project\1. Project (HubStudio)\app1
+создаём папку static
+- копируем папку deps из директория 
+c:\Users\прога\Desktop\Job Py\3 Project\1.1 для проекта (HubStudio)\2. peredel
+
+- вносим изменения app1/app/setting.py
+внизу где STATIC_URL = 'static/'
+добавляем код
+
+STATICFILES_DIRS = [
+    BASE_DIR / 'static'
+]
+
+далее если вместо STATIC_URL = 'static/' написать STATIC_URL = 'real/'
+то в префиксе index.html поменяются пути статики URL на место где хранятся папки с картинками и иконками
+(пригодится для будущего проекта своего что бы переделать index.html)
+
+----------------------создание шаблона для наследования-------------------------------------
+- создаём файл base.html в каталоге app1/main/templates/main
+
+- всё из index.html копируем и переносим в base.html
+
+- из файла base.html формируем шаблон
+    вырезаем блок из base.html который не будет повторятся в шаблоне
+    и вставляем в файл index.html удаляя те блоки которые будут повторятся из наследуемого шаблона
+
+    пример блок base.html:
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={% static "deps/css/bootstrap/bootstrap.min.css" %}>
+    <link rel="stylesheet" href={% static "deps/css/my_css.css" %}>
+    <!-- Стиль footer-a для главной страницы -->
+
+    {% block css %}
+
+    {% endblock %}
+
+    <!-- Favicons for different platforms -->
+    <link rel="apple-touch-icon" sizes="180x180" href={% static "deps/favicon/apple-touch-icon.png" %}>
+    <link rel="icon" type="image/png" sizes="32x32" href={% static "deps/favicon/favicon-32x32.png" %}>
+    <link rel="icon" type="image/png" sizes="16x16" href={% static "deps/favicon/favicon-16x16.png" %}>
+    <link rel="manifest" href={% static "deps/favicon/site.webmanifest" %}>
+    <title>Home</title>
+</head>
+
+    блок из index.html
+
+    {% block css %}
+    <link rel="stylesheet" href={% static "deps/css/my_footer_css.css" %}>
+    {% endblock %}
+
+    и так далее в итоге у нас получается файл index.html
+---------------------------------------------------------------------------------------
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href={% static "deps/css/my_footer_css.css" %}>
+{% endblock %}
+
+
+{% block content %}
+    <h1 class="mt-5 pt-5"><strong>Магазин мебели HOME</strong></h1>
+{% endblock %}
+
+{% block footer %}
+    <footer class="py-4 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Home Python Hub Studio 2023</p>
+        </div>
+    </footer>
+{% endblock  %}
+----------------------------------------------------------------------------------------------------
+который наследуется от base.html и использует вставки {% block %}{% endblock  %}
+чтобы расширится
+----------------------------------------------------------------------------------------------------
+далее в файле index.html записываем код который указывает путь к шаблону
+{% extends "main/base.html" %} так как base.html и index.html лежат в одной папке
+путь короткий
+----------------------------------------------------------------------------------------------------
+
+заходим в файл views.py и вносим изменения
+
+def index(request):
+    context = {
+        'title': 'Home - Главная',
+        'content': 'Магазин мебели HOME'
+    }
+    return render(request, 'main/index.html', context)
+
+из файла index.py 'Магазин мебели HOME' вырезаем
+
+в index.py вносим изменения
+
+{% block content %}
+    <h1 class="mt-5 pt-5"><strong>{{ content }}</strong></h1>
+{% endblock %}
+
+в файл base.py вносим изменения
+
+- запускаем терминал, проверяем (ctrl F5 запускаем в автоматическом режиме или python manage.py runserver
+через терминал)
+
+********************************************************************************************
+
+- app1/mein/templates/main создаём файл about.html
+
+- копируем всё из index.html в about.py
+
+- переходим во views.py в функцию
+
+def about(request):
+    return HttpResponse('About page')
+
+вносим изменения
+
+def about(request):
+    context = {
+        'title': 'Home - О нас',
+        'content': 'О нас',
+        'text_on_page': 'Текст о том какой классный магазин'
+    }
+    return render(request, 'main/about.html', context)
+
+---------------------------
+заходим в about.html и вносим изменения
+
+{% block content %}
+    <div class="mt-5 pt-5 bg-white custom-shadow rounded">                  --классы из bootstrap
+            <h2 class="m-2"><strong>{{ content }}</strong></h2>
+            <p class="m-2">{{ text_on_page }}</p>
+    </div>
+{% endblock %}
+
+запускаем терминал проверяем страницу, в строке http://127.0.0.1:8000/
+дописываем вручную about так как ссылка пока не работает
+----------------------------------
+делаем ссылки
+открываем base.html и views.py
+находим 
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">Home</a>
+
+и прописаваем путь с помощью тега вот так
+                <a class="navbar-brand" href="{% url "index" %} ">Home</a>
+
+
+далее находим 
+
+<li><a class="dropdown-item  text-white" href="#">Про нас</a></li>
+
+и тоже прописываем
+
+<li><a class="dropdown-item  text-white" href={% url "about" %}>Про нас</a></li>
+
+--------------------
+переносим URL адреса для удобства
+создаём в папке app1/main свой файл urls.py
+
+копируем всё из app/urls.py в main/urls.py
+_____________
+в main/urls.py
+оставляем URL которые касаются только приложения main и вот это from django.contrib import admin
+получается так
+
+from django.urls import path
+
+from main import views
+
+
+urlpatterns = [
+    path('', views.index, name='index'),
+    path('about/', views.about, name='about'),
+]
+________________________________________________________________
+из app/urls.py наоборот удаляем + from main import views вот это
+добавляем функцию include(), и namespace='main' указывает к какому приложению относится
+получается так
+
+from django.contrib import admin
+from django.urls import include, path
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('main.urls', namespace='main'))
+]
+
+------------------------
+заходим в base.html и периписываем 
+
+<li><a class="dropdown-item  text-white" href="{% url "main:about" %}">О нас</a></li>
+
+<a class="navbar-brand" href="{% url "main:index" %} ">Home</a>
+
+________________________________________________________________
+в файле main/urls добавляем app_name
+
+from django.urls import path
+
+from main import views
+
+app_name = "main"
+
+urlpatterns = [
+    path('', views.index, name='index'),
+    path('about/', views.about, name='about'),
+]
+
+________________________________________________________________
+открываем терминал проверяем
+
+
+
