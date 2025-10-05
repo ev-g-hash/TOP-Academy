@@ -2,7 +2,7 @@ import telebot
 import secrets
 import string
 
-TOKEN = '8431709541:AAHS9UltD7_RCDhyFDS77kTFMwwa-MKiANM'
+TOKEN = 'TOKEN'
 
 bot = telebot.TeleBot(TOKEN)
 
