@@ -1,0 +1,127 @@
+************************************************** ЗАДАЧА 1 ****************************************
+
+1. создаём проект (папка например app_project)
+
+2. запускаем терминал и подключаем виртуальное окружение
+python -m venv venv
+
+3. активируем виртуальное окружение
+venv\Scripts\activate
+
+4. устанавливаем джанго
+pip install django
+
+5. обновляем pip 
+python -m pip install --upgrade pip
+
+6. проверяем наличие пакетов
+pip list
+
+7. Создаем проект джанго в конце через пробел ставим точку
+django-admin startproject app .
+
+8. запускаем джанго 
+python manage.py runserver
+
+9. тушим сервер
+ctr + c
+
+8. проверяем наличие команд manage.py
+python manage.py
+
+9. применяем миграцию моделей уже имеющихся по умолчанию в джанго
+python manage.py migrate
+
+10. создаём приложение
+python manage.py startapp main_app
+
+11. создаём в main_app файл urls.py
+
+12. в файл app/settings.py вносим изменения
+*********************
+INSTALLED_APPS = [
+    ... ,
+    ... ,
+
+    'main_app',    
+]
+
+LANGUAGE_CODE = 'en-us'
+на
+LANGUAGE_CODE = 'ru-ru'
+
+TIME_ZONE = 'UTC'
+на
+TIME_ZONE = 'Europe/Moscow
+******************
+
+13. открываем main_app/views.py делаем представление модели
+***********
+from django.shortcuts import render
+
+from django.http import HttpResponse
+
+def index(request):
+    return HttpResponse('<h1>Главная страница</h1>')
+***********
+
+14. открываем app/urls.py вносим изменение в URL не забываем импортировать include
+***************
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('main_app.urls')),
+]
+**************
+
+15. открываем main_app/urls.py вносим изменение в URL не забываем импортировать views из main_app
+***************
+from django.urls import path
+from main_app import views
+
+urlpatterns = [
+    path('', views.index, name='index'),
+]
+***************
+
+16. запускаем сервер проверяем
+python manage.py runserver
+
+ВСЁ РАБОТАЕТ !!!!!!!!!!!!!!!!!
+
+******************************* ЗАДАЧА ДВА ПРОДОЛЖЕНИЕ **********************************
+
+17. тушим сервер
+ctr + c
+
+18. открываем main_app/views.py вносим изменения (дополняем код)
+*******************
+def catalog(request):
+    return HttpResponse('<h1>Каталог</h1>')
+
+def contact(request):
+    return HttpResponse('<h1>Контакты</h1>')
+***************
+
+19. открываем main_app/urls.py вносим изменения (дополняем код)
+итоговый код
+***************
+from django.urls import path
+from main_app import views
+
+urlpatterns = [
+    path('', views.index, name='index'),
+    path('catalog/', views.catalog, name='catalog'),
+    path('contact/', views.contact, name='contact'),
+]
+***************************
+
+20. запускаем сервер проверяем
+python manage.py runserver
+
+ВСЁ РАБОТАЕТ !!!!!!!!!!!!!!!!!
+
+тушим сервер.
+
