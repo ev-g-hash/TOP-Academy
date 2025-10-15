@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+</head>
+<body bgcolor="7cfcb8">
+   
+<a style="color:rgba(207, 0, 0, 1)" href="{% url "index" %}"><strong>переход на главную - index.html</strong></a>
+    
+
+<h1>Я шаблон Profile.html</h1>
+
+<h3 style="color:rgba(63, 14, 54, 1)"><strong>Здесь находится содержимое шаблона Profile.html:</strong>
+
+<pre style="color:rgba(173, 21, 64, 1)">
+    {'name': 'Дмитрий', 'age': 39, 'phone': '+79123456789', 'email': 'dmitry@email.com'} 
+</pre>
+
+
+
+
+<h3 style="color:rgba(63, 14, 54, 1)"><strong>Здесь передаются шаблонные переменные data - шаблона Profile.html:</strong>
+
+    <pre style="color:rgba(173, 21, 64, 1)"> Name: {{ name_1 }} </pre>
+
+    <pre style="color:rgba(173, 21, 64, 1)"> Age: {{ age_1 }} </pre>
+
+    <pre style="color:rgba(173, 21, 64, 1)"> Phone: {{ phone_1 }} </pre>
+
+    <pre style="color:rgba(173, 21, 64, 1)"> Email: {{ email_1 }} </pre>
+</h3>
+
+
+
+<h3 style="color:rgba(63, 14, 54, 1)"><strong>Здесь передаются данные по GET запросу - шаблона Profile.html:</strong>
+<ul>
+    <li>Имя: {{ name }}</li>
+    <li>Возраст: {{ age }}</li>
+    <li>Телефон: {{ phone }}</li>
+    <li>E-Mail: {{ email }}</li>
+</ul>
+
+
+
+</body>
+</html>
