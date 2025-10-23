@@ -1,0 +1,26 @@
+Прогонка через coverage (проверить на 100% покрытие кода)
+
+coverage run
+coverage run test_calculator.py
+coverage run -m pytest test_calculator.py
+
+python3 -m venv venv (создать виртуальное окружение)
+-----------------------------------------------------------------------------------------
+(.venv) PS C:\Users\прога\PycharmProjects\PythonProject3> coverage report
+Name                 Stmts   Miss  Cover
+----------------------------------------
+calculator.py           13      1    92%
+test_calculator.py      20      0   100%
+----------------------------------------
+TOTAL                   33      1    97%
+-------------------------------------------------------------------------------------------
+(.venv) PS C:\Users\прога\PycharmProjects\PythonProject3> coverage report -m
+Name                 Stmts   Miss  Cover   Missing
+--------------------------------------------------
+calculator.py           13      1    92%   3
+test_calculator.py      20      0   100%
+--------------------------------------------------
+TOTAL                   33      1    97%
+//////////////////////////////////////////////////////////////////////////
+(.venv) PS C:\Users\прога\PycharmProjects\PythonProject3> coverage html -d coverage_html
+Wrote HTML report to coverage_html\index.html
